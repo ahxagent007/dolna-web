@@ -15,7 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.views.static import serve
+from django.urls import include
+from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', include(('Home.urls', 'Home'), namespace='Home')),
+    path('Rent/', include(('Rent.urls', 'Rent'), namespace='Rent')),
+    path('User/', include(('User.urls', 'User'), namespace='User')),
+
 ]
