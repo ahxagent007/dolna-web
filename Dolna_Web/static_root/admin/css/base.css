@@ -765,11 +765,11 @@ a.deletelink:focus, a.deletelink:hover {
 }
 
 .object-tools a.viewsitelink {
-    background-image: url(../img/tooltag-arrowright.svg);
+    background-image: url(/static/img/tooltag-arrowright.svg);
 }
 
 .object-tools a.addlink {
-    background-image: url(../img/tooltag-add.svg);
+    background-image: url(/static/img/tooltag-add.svg);
 }
 
 /* OBJECT HISTORY */
