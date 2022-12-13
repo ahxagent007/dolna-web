@@ -44,6 +44,8 @@ INSTALLED_APPS = [
     'Home',
     'Rent',
     'User'
+    'rest_framework',
+    'api'
 
 ]
 
