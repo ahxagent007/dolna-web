@@ -1,8 +1,10 @@
 from django.urls import path
-from .views import *
-from .api import get_car_details
+from .api import *
 
 
 urlpatterns=[
-    path('GetCarDetails/<driver_id>', get_car_details, name='get_car_details'),
+    path('Car/Get/Details/<driver_id>', get_car_details, name='get_car_details'),
+    path('Rider/Get/Details/<fb_uid>', get_rider_details, name='get_rider_details'),
+    path('Driver/Get/Details/<fb_uid>', get_driver_details, name='get_driver_details'),
+    path('Rider/Create', create_rider, name='create_rider'),
 ]
