@@ -45,20 +45,20 @@ def get_driver_details(request, fb_uid):
         return Response({}, status=status.HTTP_404_NOT_FOUND)
 
 
-@api_view(['POST'])
+@api_view(['PUT'])
 def create_rider(request):
 
     try:
         request_data = json.loads(request.body.decode("utf-8"))
 
-        FirebaseID = request_data['FirebaseID']
-        Name = request_data['Name']
-        Phone = request_data['Phone']
-        Email = request_data['Email']
-        Address = request_data['Address']
-        Gender = request_data['Gender']
-        DateOfBirth = request_data['DateOfBirth']
-        Photo = request_data['Photo']
+        FirebaseID = request_data['user_id']
+        Name = request_data['user_name']
+        Phone = request_data['user_phn']
+        Email = request_data['user_mail']
+        Address = request_data['user_address']
+        Gender = request_data['user_gender']
+        DateOfBirth = request_data['user_dob']
+        Photo = request_data['user_photo']
 
         try:
             Rider.objects.create(FirebaseID=FirebaseID, Name=Name, Phone=Phone, Email=Email, Address=Address,
@@ -77,3 +77,4 @@ def create_rider(request):
         return Response(data, status=status.HTTP_400_BAD_REQUEST)
     except:
         return Response({'msg':'wrong information format'}, status=status.HTTP_400_BAD_REQUEST)
+
