@@ -17,7 +17,7 @@ def get_car_details(request, driver_id):
 
         return Response(data)
     except:
-        return Response({}, status=status.HTTP_404_NOT_FOUND)
+        return Response({})
 
 
 
@@ -30,7 +30,7 @@ def get_rider_details(request, fb_uid):
 
         return Response(data)
     except:
-        return Response({}, status=status.HTTP_404_NOT_FOUND)
+        return Response({})
 
 
 @api_view(['GET'])
@@ -42,10 +42,10 @@ def get_driver_details(request, fb_uid):
 
         return Response(data)
     except:
-        return Response({}, status=status.HTTP_404_NOT_FOUND)
+        return Response({})
 
 
-@api_view(['PUT'])
+@api_view(['POST'])
 def create_rider(request):
 
     try:
@@ -74,7 +74,28 @@ def create_rider(request):
                 'Error': str(e)
             }
 
-        return Response(data, status=status.HTTP_400_BAD_REQUEST)
+        return Response(data)
     except:
-        return Response({'msg':'wrong information format'}, status=status.HTTP_400_BAD_REQUEST)
+        return Response({'msg':'wrong information format'})
 
+
+@api_view(['POST'])
+def delete_driver_details(request, fb_uid):
+
+    try:
+        driver = Driver.objects.get(FirebaseID=fb_uid).delete()
+
+        return Response({'msg': fb_uid+' User Deleted'})
+    except:
+        return Response({'msg':'No User Found'})
+
+
+@api_view(['POST'])
+def delete_rider_details(request, fb_uid):
+
+    try:
+        driver = Rider.objects.get(FirebaseID=fb_uid).delete()
+
+        return Response({'msg': fb_uid+' User Deleted'})
+    except:
+        return Response({'msg':'No User Found'})
