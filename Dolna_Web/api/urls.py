@@ -9,4 +9,6 @@ urlpatterns=[
     path('Rider/Create', create_rider, name='create_rider'),
     path('Driver/Delete/<fb_uid>', delete_driver_details, name='delete_driver_details'),
     path('Rider/Delete/<fb_uid>', delete_rider_details, name='delete_rider_details'),
+    path('Driver/Update', driver_update, name='delete_driver_details'),
+    path('Rider/Update', rider_update, name='delete_driver_details'),
 ]

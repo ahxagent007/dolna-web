@@ -99,3 +99,44 @@ def delete_rider_details(request, fb_uid):
         return Response({'msg': fb_uid+' User Deleted'})
     except:
         return Response({'msg':'No User Found'})
+
+
+@api_view(['POST'])
+def driver_update(request):
+    try:
+        request_data = json.loads(request.body.decode("utf-8"))
+        rider = Rider.objects.get(ID=request_data['ID'])
+
+        serializer = DriverSerializer(rider, data=request.data)
+
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        else:
+            data = {
+                'msg': 'Wrong Information or Format',
+            }
+            return Response(data)
+
+    except:
+        return Response({'msg': 'wrong information format'})
+
+@api_view(['POST'])
+def rider_update(request):
+    try:
+        request_data = json.loads(request.body.decode("utf-8"))
+        rider = Rider.objects.get(ID=request_data['ID'])
+
+        serializer = RiderSerializer(rider, data=request.data)
+
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        else:
+            data = {
+                'msg': 'Wrong Information or Format',
+            }
+            return Response(data)
+
+    except:
+        return Response({'msg': 'wrong information format'})
