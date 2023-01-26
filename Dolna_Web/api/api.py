@@ -105,7 +105,7 @@ def delete_rider_details(request, fb_uid):
 def driver_update(request):
     try:
         request_data = json.loads(request.body.decode("utf-8"))
-        rider = Rider.objects.get(ID=request_data['ID'])
+        rider = Driver.objects.get(ID=request_data['ID'])
 
         serializer = DriverSerializer(rider, data=request.data)
 
