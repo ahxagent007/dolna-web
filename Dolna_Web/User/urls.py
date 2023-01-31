@@ -4,4 +4,5 @@ from .views import *
 
 
 urlpatterns=[
+    path('driver/registration', DriverRegistration.as_view()),
 ]
