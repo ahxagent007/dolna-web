@@ -43,15 +43,12 @@ class CarDetails(APIView):
 
 class CarUpdate(APIView):
 
-    def post(self,request):
+    def put(self,request,id):
 
         try:
 
             data = request.data
-            car_info = Car.objects.filter(DriverID = request.data['driver_id'])
-            print(car_info)
-            serializer = CarSerializer(car_info)
-            print(serializer.data)
+            car_info = Car.objects.get(DriverID = id)
 
             car_info.Model = data['model']
             car_info.Color = data['color']

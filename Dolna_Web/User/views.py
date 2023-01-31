@@ -14,10 +14,12 @@ class DriverRegistration(APIView):
 
         return Response(serializer.data)
 
-    def get(self,request):
+class DriverDetails(APIView):
+
+    def get(self,request,id):
         try:
 
-            driver_info = Driver.objects.get(ID=request.data['id'])
+            driver_info = Driver.objects.get(ID=id)
 
             serializer = DriverSerializer(driver_info)
 
@@ -29,15 +31,16 @@ class DriverRegistration(APIView):
 
             })
 
-    def put(self,request):
+class DriverUpdate(APIView):
+
+    def put(self,request,id):
 
         try:
 
             data = request.data
 
-            driver_info = Driver.objects.get(ID = request.data['id'])
+            driver_info = Driver.objects.get(ID = id)
 
-            driver_info.ID = data['id']
             driver_info.Name = data['name']
             driver_info.Phone = data['phone']
             driver_info.Email = data['email']
