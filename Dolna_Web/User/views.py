@@ -19,7 +19,7 @@ class DriverDetails(APIView):
     def get(self,request,id):
         try:
 
-            driver_info = Driver.objects.get(ID=id)
+            driver_info = Driver.objects.get(F_ID=id)
 
             serializer = DriverSerializer(driver_info)
 
@@ -39,7 +39,7 @@ class DriverUpdate(APIView):
 
             data = request.data
 
-            driver_info = Driver.objects.get(ID = id)
+            driver_info = Driver.objects.get(F_ID = id)
 
             driver_info.Name = data['name']
             driver_info.Phone = data['phone']

@@ -15,7 +15,7 @@ class Rider(models.Model):
 
 class Driver(models.Model):
     ID = models.AutoField(primary_key=True)
-    FirebaseID = models.CharField(max_length=255, null=True)
+    F_ID = models.CharField(max_length=255,null=False)
     Name = models.CharField(max_length=255, null=False)
     Phone = models.CharField(max_length=255, null=False)
     Email = models.CharField(max_length=255, null=False)

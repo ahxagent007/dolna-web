@@ -29,7 +29,7 @@ class CarDetails(APIView):
 
     def get(self,request,id):
         try:
-            car_info = Car.objects.get(DriverID = id)
+            car_info = Car.objects.get(F_ID = id)
 
             serializer = CarSerializer(car_info)
 
@@ -48,7 +48,7 @@ class CarUpdate(APIView):
         try:
 
             data = request.data
-            car_info = Car.objects.get(DriverID = id)
+            car_info = Car.objects.get(F_ID = id)
 
             car_info.Model = data['model']
             car_info.Color = data['color']
