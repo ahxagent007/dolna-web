@@ -12,13 +12,12 @@ import json
 def get_car_details(request, driver_id):
 
     try:
-        car = Car.objects.get(DriverID=driver_id)
+        car = Car.objects.get(ID=driver_id)
         data = CarSerializer(car, many=False).data
 
         return Response(data)
     except:
         return Response({})
-
 
 
 @api_view(['GET'])
@@ -43,6 +42,47 @@ def get_driver_details(request, fb_uid):
         return Response(data)
     except:
         return Response({})
+
+
+@api_view(['POST'])
+def create_car(request):
+
+    try:
+
+        serializer = CarSerializer(data = request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+
+        return Response({
+                'Message' : 'Car Details added Successfully'
+            })
+
+    except Exception as e:
+        return Response(
+            {
+                'msg': 'Wrong Information or Format',
+                'Error': str(e)
+            }
+        )
+
+
+@api_view(['POST'])
+def create_driver(request):
+
+    try :
+        serializer = DriverSerializer(data = request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+
+        return Response(serializer.data)
+
+    except Exception as e:
+        return Response(
+            {
+                'msg': 'Wrong Information or Format',
+                'Error': str(e)
+            }
+        )
 
 
 @api_view(['POST'])
@@ -79,6 +119,7 @@ def create_rider(request):
         return Response({'msg':'wrong information format'})
 
 
+
 @api_view(['POST'])
 def delete_driver_details(request, fb_uid):
 
@@ -100,6 +141,34 @@ def delete_rider_details(request, fb_uid):
     except:
         return Response({'msg':'No User Found'})
 
+
+
+@api_view(['POST'])
+def car_update(request,id):
+
+    try:
+
+        data = request.data
+        car_info = Car.objects.get(FirebaseID = id)
+
+        car_info.Model = data['Model']
+        car_info.Color = data['Color']
+        car_info.Type = data['Type']
+        car_info.RegistrationNumber = data['RegistrationNumber']
+        car_info.isAC = data['isAC']
+        car_info.Condition = data['Condition']
+        car_info.Pictures = data['Pictures']
+        car_info.save()
+
+        return Response({
+                'Message' : 'Details Update Successfully'
+            })
+
+    except:
+        return Response({
+            'Message' : 'No content found'
+
+            })
 
 @api_view(['POST'])
 def driver_update(request):
@@ -140,3 +209,4 @@ def rider_update(request):
 
     except:
         return Response({'msg': 'wrong information format'})
+
