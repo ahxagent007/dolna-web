@@ -171,10 +171,10 @@ def car_update(request,id):
             })
 
 @api_view(['POST'])
-def driver_update(request):
+def driver_update(request,id):
     try:
-        request_data = json.loads(request.body.decode("utf-8"))
-        rider = Driver.objects.get(ID=request_data['ID'])
+        # request_data = json.loads(request.body.decode("utf-8"))
+        rider = Driver.objects.get(FirebaseID=id)
 
         serializer = DriverSerializer(rider, data=request.data)
 

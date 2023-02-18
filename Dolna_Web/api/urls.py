@@ -12,7 +12,7 @@ urlpatterns=[
     path('Driver/Delete/<fb_uid>', delete_driver_details, name='delete_driver_details'),
     path('Rider/Delete/<fb_uid>', delete_rider_details, name='delete_rider_details'),
     path('Car/Update/<id>', car_update, name='car_update'),
-    path('Driver/Update', driver_update, name='delete_driver_details'),
+    path('Driver/Update/<id>', driver_update, name='driver_update'),
     path('Rider/Update', rider_update, name='delete_driver_details'),
 ]
 
