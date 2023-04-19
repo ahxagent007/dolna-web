@@ -12,7 +12,7 @@ import json
 def get_car_details(request, driver_id):
 
     try:
-        car = Car.objects.get(ID=driver_id)
+        car = Car.objects.get(DriverID=driver_id)
         data = CarSerializer(car, many=False).data
 
         return Response(data)
@@ -54,7 +54,7 @@ def create_car(request):
         serializer.save()
 
         return Response({
-                'Message' : 'Car Details added Successfully'
+                'Message': 'Car Details added Successfully'
             })
 
     except Exception as e:
@@ -141,15 +141,31 @@ def delete_rider_details(request, fb_uid):
     except:
         return Response({'msg':'No User Found'})
 
-
-
-@api_view(['POST'])
-def car_update(request,id):
+@api_view(['PUT'])
+def car_update(request, id):
 
     try:
+        # request_data = json.loads(request.body.decode("utf-8"))
+        rider = Car.objects.get(DriverID=id)
+
+        serializer = CarSerializer(rider, data=request.data, partial=True)
+
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        else:
+            data = {
+                'msg': 'Serializer not valid',
+            }
+            return Response(data)
+
+    except:
+        return Response({'msg': 'wrong information format'})
+
+    '''try:
 
         data = request.data
-        car_info = Car.objects.get(FirebaseID = id)
+        car_info = Car.objects.get(DriverID = id)
 
         car_info.Model = data['Model']
         car_info.Color = data['Color']
@@ -167,36 +183,44 @@ def car_update(request,id):
     except:
         return Response({
             'Message' : 'No content found'
+            })'''
 
-            })
-
-@api_view(['POST'])
+@api_view(['PUT'])
 def driver_update(request,id):
     try:
         # request_data = json.loads(request.body.decode("utf-8"))
         rider = Driver.objects.get(FirebaseID=id)
 
-        serializer = DriverSerializer(rider, data=request.data)
+        serializer = DriverSerializer(rider, data=request.data, partial=True)
 
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data)
         else:
             data = {
-                'msg': 'Wrong Information or Format',
+                'msg': 'Serializer not valid',
             }
             return Response(data)
 
     except:
         return Response({'msg': 'wrong information format'})
 
-@api_view(['POST'])
-def rider_update(request):
+@api_view(['PUT'])
+def rider_update(request, id):
+    '''
+    {"Name": "ASD",
+    "Phone": "21564",
+    "Email": "AsdASD@ASDaSD.com",
+    "Address": "asdsad asd",
+    "Gender": "Male",
+    "DateOfBirth": "2023-12-30",
+    "Photo": "pathtottheimage"}
+    '''
     try:
         request_data = json.loads(request.body.decode("utf-8"))
-        rider = Rider.objects.get(ID=request_data['ID'])
+        rider = Rider.objects.get(FirebaseID=id)
 
-        serializer = RiderSerializer(rider, data=request.data)
+        serializer = RiderSerializer(rider, data=request_data, partial=True)
 
         if serializer.is_valid():
             serializer.save()
