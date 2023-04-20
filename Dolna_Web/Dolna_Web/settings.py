@@ -45,7 +45,9 @@ INSTALLED_APPS = [
     'Home',
     'Rent',
     'User',
-    'api'
+    'api',
+    'rest_framework_swagger',
+    'drf_yasg',
 
 ]
 
@@ -116,6 +118,12 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS':
+    'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 100,
+    'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema'  # <-- Here
+}
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/

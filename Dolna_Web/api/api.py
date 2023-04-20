@@ -47,6 +47,21 @@ def get_driver_details(request, fb_uid):
 @api_view(['POST'])
 def create_car(request):
 
+    '''
+    {
+        "DriverID": "132",
+        "Model" : "TOYOTA TACOMA",
+        "Color": "GOLDEN",
+        "Type": "SEDAN",
+        "RegistrationNumber": "DHAKA METROE 52656",
+        "isAC": true,
+        "Condition": "OK",
+        "Pictures": "asdasdsa/asdad/asd"
+
+    }
+
+    '''
+
     try:
 
         serializer = CarSerializer(data = request.data)
@@ -69,6 +84,19 @@ def create_car(request):
 @api_view(['POST'])
 def create_driver(request):
 
+    '''
+    {
+        "FirebaseID": "asdasd",
+        "Name": "asd as",
+        "Phone": "asdasdasd",
+        "Email": "adsad@asdas.com",
+        "Address": "asdad",
+        "NID": "asdsad",
+        "Photo": "asdsad/asdas/das/d"
+    }
+
+    '''
+
     try :
         serializer = DriverSerializer(data = request.data)
         serializer.is_valid(raise_exception=True)
@@ -87,6 +115,19 @@ def create_driver(request):
 
 @api_view(['POST'])
 def create_rider(request):
+
+    '''
+    {
+        "user_id": "",
+        "user_name": "",
+        "user_phn": "",
+        "user_mail": "",
+        "user_address": "",
+        "user_gender": "",
+        "user_dob": "",
+        "user_photo": ""
+    }
+    '''
 
     try:
         request_data = json.loads(request.body.decode("utf-8"))
@@ -120,7 +161,7 @@ def create_rider(request):
 
 
 
-@api_view(['POST'])
+@api_view(['DELETE'])
 def delete_driver_details(request, fb_uid):
 
     try:
@@ -131,7 +172,7 @@ def delete_driver_details(request, fb_uid):
         return Response({'msg':'No User Found'})
 
 
-@api_view(['POST'])
+@api_view(['DELETE'])
 def delete_rider_details(request, fb_uid):
 
     try:
@@ -143,6 +184,20 @@ def delete_rider_details(request, fb_uid):
 
 @api_view(['PUT'])
 def car_update(request, id):
+
+    '''
+    {
+        "ID": "",
+        "DriverID": "",
+        "Model": "",
+        "Color": "",
+        "Type": "",
+        "RegistrationNumber": "",
+        "isAC": false,
+        "Condition": "",
+        "Pictures": ""
+    }
+    '''
 
     try:
         # request_data = json.loads(request.body.decode("utf-8"))
@@ -187,6 +242,18 @@ def car_update(request, id):
 
 @api_view(['PUT'])
 def driver_update(request,id):
+    '''
+    {
+        "FirebaseID": "asdasd",
+        "Name": "asd as",
+        "Phone": "asdasdasd",
+        "Email": "adsad@asdas.com",
+        "Address": "asdad",
+        "NID": "asdsad",
+        "Photo": "asdsad/asdas/das/d"
+    }
+    '''
+
     try:
         # request_data = json.loads(request.body.decode("utf-8"))
         rider = Driver.objects.get(FirebaseID=id)
