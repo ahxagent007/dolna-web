@@ -130,7 +130,7 @@ def create_rider(request):
     '''
 
     try:
-        request_data = json.loads(request.body.decode("utf-8"))
+        request_data = request.data
 
         FirebaseID = request_data['user_id']
         Name = request_data['user_name']
@@ -284,7 +284,7 @@ def rider_update(request, id):
     "Photo": "pathtottheimage"}
     '''
     try:
-        request_data = json.loads(request.body.decode("utf-8"))
+        request_data = request.data
         rider = Rider.objects.get(FirebaseID=id)
 
         serializer = RiderSerializer(rider, data=request_data, partial=True)

@@ -10,5 +10,5 @@ class Car(models.Model):
     RegistrationNumber = models.CharField(max_length=255, null=False)
     isAC = models.BooleanField(null=False)
     Condition = models.CharField(max_length=255, null=False)
-    Pictures = models.CharField(max_length=255, null=False)
+    Pictures = models.CharField(max_length=4000, null=False)
 

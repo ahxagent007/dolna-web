@@ -21,4 +21,4 @@ class Driver(models.Model):
     Email = models.CharField(max_length=255, null=False)
     Address = models.CharField(max_length=255, null=False)
     NID = models.CharField(max_length=255, null=False)
-    Photo = models.CharField(max_length=255, null=False)
+    Photo = models.CharField(max_length=4000, null=False)
