@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'Home',
     'Rent',
     'User',
+    'Admin',
     'api',
     'rest_framework_swagger',
     'drf_yasg',
