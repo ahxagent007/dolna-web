@@ -94,3 +94,18 @@ class UserAccount(AbstractBaseUser):
 
     def has_module_perms(self, app_label):
         return self.is_superuser
+
+class DeviceVerification(models.Model):
+    id = models.AutoField(primary_key=True)
+    serial = models.CharField(max_length=255, null=False)
+    device = models.CharField(max_length=255, null=False)
+    name = models.CharField(max_length=255, null=False)
+    token = models.CharField(max_length=255, null=False)
+    resend = models.IntegerField(default=1)
+    created_at = models.DateField(auto_now_add=True)
+
+class OTP(models.Model):
+    id = models.AutoField(primary_key=True)
+    phone = models.CharField(max_length=255, null=False)
+    otp = models.IntegerField(null=False)
+    created_at = models.DateField(auto_now_add=True)
