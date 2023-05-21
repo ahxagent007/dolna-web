@@ -121,8 +121,15 @@
             </div>
         </div>
 
+
         <div class="dashboard-wrapper">
             <div class="container-fluid  dashboard-content">
+
+                <div>
+                    <h3>
+                        Add Rider Details
+                    </h3>
+                </div>
                 <form action="{% url 'Admin:Add_Rider' %}" method="POST" enctype="multipart/form-data">
                     {% csrf_token %}
 
@@ -205,8 +212,7 @@
                             </div>
 
                     </div>
-                        <button type="submit" class="btn btn-button-7 btn-rounded mb-4 mt-3">Create Member</button>
-
+                        <button style="background-color:#25d5f2;color:#fff" type="submit" class="btn btn-button-7 btn-rounded mb-4 mt-3">Create Rider</button>
                 </form>
             </div>
         </div>

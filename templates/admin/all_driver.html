@@ -95,9 +95,7 @@ border-radius: 2px;
 table.table .form-control.error {
 border-color: #f50000;
 }
-table.table td .add {
-display: none;
-}
+
 </style>
 </head>
 
@@ -111,18 +109,8 @@ display: none;
         <!-- ============================================================== -->
         <div class="dashboard-header">
             <nav class="navbar navbar-expand-lg bg-white fixed-top">
-                <div class="collapse navbar-collapse " id="navbarSupportedContent">
-                    <ul class="navbar-nav ml-auto navbar-right-top">
+                <div class="collapse navbar-collapse " id="navbarSupportedContent" style="background-color:#fff;">
 
-                        <li class="nav-item dropdown nav-user">
-                            <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="assets/images/avatar-1.jpg" alt="" class="user-avatar-md rounded-circle"></a>
-                            <div class="dropdown-menu dropdown-menu-right nav-user-dropdown" aria-labelledby="navbarDropdownMenuLink2">
-                                <div class="nav-user-info">
-                                    <h5 class="mb-0 text-white nav-user-name">{{admin_name}} </h5>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
                 </div>
             </nav>
         </div>
@@ -234,7 +222,7 @@ display: none;
     <td>{{dr.Address}}</td>
     <td>{{dr.NID}}</td>
 <td>
-<a href="#" class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
+<a href="#" class="add" title="Car" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
 <a href="{% url 'Admin:Edit_Driver' driver_id=dr.ID %}" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
 <a href="{% url 'Admin:Delete_Driver' driver_id=dr.ID %}" onclick="return confirm('Are you sure, You want to delete this record ?')" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
 </td>
