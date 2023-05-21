@@ -2,7 +2,7 @@
 <!doctype html>
 <html lang="en">
 
- 
+
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -15,14 +15,90 @@
     <link rel="stylesheet" href="{% static 'assets/vendor/vector-map/jqvmap.css' %}">
     <link rel="stylesheet" href="{% static 'assets/vendor/jvectormap/jquery-jvectormap-2.0.2.css' %}">
     <link rel="stylesheet" href="{% static 'assets/vendor/fonts/flag-icon-css/flag-icon.min.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <title>Admin Dashboard</title>
 
-    <style>
-        html, body {
-    max-width: 100%;
-    overflow-y: hidden;
+    <style type="text/css">
+
+
+.table-wrapper {
+width: 700px;
+margin: 30px auto;
+padding: 20px;
+box-shadow: 0 1px 1px rgba(0,0,0,.05);
 }
-    </style>
+.table-title {
+padding-bottom: 10px;
+margin: 0 0 10px;
+}
+.table-title h2 {
+margin: 6px 0 0;
+font-size: 22px;
+}
+.table-title .add-new {
+float: right;
+height: 30px;
+font-weight: bold;
+font-size: 12px;
+text-shadow: none;
+min-width: 100px;
+border-radius: 50px;
+line-height: 13px;
+}
+.table-title .add-new i {
+margin-right: 4px;
+}
+table.table {
+table-layout: auto;
+}
+table.table tr th, table.table tr td {
+border-color: #e9e9e9;
+}
+table.table th i {
+font-size: 13px;
+margin: 0 5px;
+cursor: pointer;
+}
+table.table th:last-child {
+width: 100px;
+}
+table.table td a {
+cursor: pointer;
+display: inline-block;
+margin: 0 5px;
+min-width: 24px;
+}
+table.table td a.add {
+color: #27C46B;
+}
+table.table td a.edit {
+color: #FFC107;
+}
+table.table td a.delete {
+color: #E34724;
+}
+table.table td i {
+font-size: 19px;
+}
+table.table td a.add i {
+font-size: 24px;
+margin-right: -1px;
+position: relative;
+top: 3px;
+}
+table.table .form-control {
+height: 32px;
+line-height: 32px;
+box-shadow: none;
+border-radius: 2px;
+}
+table.table .form-control.error {
+border-color: #f50000;
+}
+table.table td .add {
+display: none;
+}
+</style>
 </head>
 
 <body>
@@ -120,108 +196,59 @@
                 </nav>
             </div>
         </div>
-        <!-- ============================================================== -->
-        <!-- end left sidebar -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- wrapper  -->
-        <!-- ============================================================== -->
-        <div class="dashboard-wrapper">
-            <div class="container-fluid  dashboard-content">
-                <!-- ============================================================== -->
-                <!-- pagehader  -->
-                <!-- ============================================================== -->
-                <div class="row">
-                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                        <div class="page-header">
-                            <h3 class="mb-2">Dashboard </h3>
-                        </div>
-                    </div>
-                </div>
-                <!-- ============================================================== -->
-                <!-- pagehader  -->
-                <!-- ============================================================== -->
-                <div class="row">
-                    <!-- metric -->
-                    <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="text-muted">Rider</h5>
-                                <div class="metric-value d-inline-block">
-                                    <h1 class="mb-1 text-primary">{{rider}} </h1>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /. metric -->
-                    <!-- metric -->
-                    <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="text-muted">Driver</h5>
-                                <div class="metric-value d-inline-block">
-                                    <h1 class="mb-1 text-primary">{{driver}}</h1>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /. metric -->
-                    <!-- metric -->
-                    <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="text-muted">Staff</h5>
-                                <div class="metric-value d-inline-block">
-                                    <h1 class="mb-1 text-primary">{{staff}}</h1>
-                                </div>
-                            </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /. metric -->
-                    <!-- metric -->
-<!--                    <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">-->
-<!--                        <div class="card">-->
-<!--                            <div class="card-body">-->
-<!--                                <h5 class="text-muted">Growth</h5>-->
-<!--                                <div class="metric-value d-inline-block">-->
-<!--                                    <h1 class="mb-1 text-primary">+28.45% </h1>-->
-<!--                                </div>-->
-<!--                                <div class="metric-label d-inline-block float-right text-success">-->
-<!--                                    <i class="fa fa-fw fa-caret-up"></i><span>4.87%</span>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                            <div id="sparkline-4"></div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-                    <!-- /. metric -->
-                </div>
-                <!-- ============================================================== -->
-                <!-- revenue  -->
-                <!-- ============================================================== -->
 
-                    <!-- ============================================================== -->
-                    <!-- end sales traffice country source  -->
-                    <!-- ============================================================== -->
-                </div>
-            </div>
-            <!-- ============================================================== -->
-            <!-- footer -->
-            <!-- ============================================================== -->
 
-        </div>
-            <!-- ============================================================== -->
-            <!-- end footer -->
-            <!-- ============================================================== -->
+<div class="container">
+<div class="table-wrapper">
+<div class="table-title">
+<div class="row">
+<div class="col-sm-8"><h2>All <b>Driver</b></h2></div>
+<div class="col-sm-4">
+    <a href="{% url 'Admin:Add_Driver' %}"> <button type="button" class="btn btn-info add-new"><i class="fa fa-plus"></i> Add New</button></a>
+</div>
+</div>
+</div>
+<table class="table table-bordered">
+<thead>
+<tr>
+
+    <th>ID</th>
+    <th>Photo</th>
+    <th>Name</th>
+    <th>Phone</th>
+    <th>Email</th>
+    <th>Address</th>
+    <th>NID</th>
+</tr>
+</thead>
+<tbody>
+{% for dr in driver %}
+<tr>
+    <td>{{dr.ID}}</td>
+    <td>
+        <img src="{% static 'UPLOAD/driver/' %}{{dr.Photo}}" alt="{{dr.Name}}" width="70" height="70">
+    </td>
+    <td>{{dr.Name}}</td>
+    <td>{{dr.Phone}}</td>
+    <td>{{dr.Email}}</td>
+    <td>{{dr.Address}}</td>
+    <td>{{dr.NID}}</td>
+<td>
+<a href="#" class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
+<a href="{% url 'Admin:Edit_Driver' driver_id=dr.ID %}" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+<a href="{% url 'Admin:Delete_Driver' driver_id=dr.ID %}" onclick="return confirm('Are you sure, You want to delete this record ?')" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+</td>
+</tr>
+
+{% endfor %}
+
+</tbody>
+</table>
+</div>
+</div>
+
     </div>
-        <!-- ============================================================== -->
-        <!-- end wrapper  -->
-        <!-- ============================================================== -->
-    <!-- ============================================================== -->
-    <!-- end main wrapper  -->
-    <!-- ============================================================== -->
-    <!-- Optional JavaScript -->
-    <!-- jquery 3.3.1 js-->
+
     <script src="{% static 'assets/vendor/jquery/jquery-3.3.1.min.js' %}"></script>
     <!-- bootstrap bundle js-->
     <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.js' %}"></script>
@@ -230,7 +257,7 @@
     <!-- chartjs js-->
     <script src="{% static 'assets/vendor/charts/charts-bundle/Chart.bundle.js' %}"></script>
     <script src="{% static 'assets/vendor/charts/charts-bundle/chartjs.js' %}"></script>
-   
+
     <!-- main js-->
     <script src="{% static 'assets/libs/js/main-js.js' %}"></script>
     <!-- jvactormap js-->
@@ -242,5 +269,5 @@
      <!-- dashboard sales js-->
     <script src="{% static 'assets/libs/js/dashboard-sales.js' %}"></script>
 </body>
- 
+
 </html>
