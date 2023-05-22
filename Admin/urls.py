@@ -15,4 +15,8 @@ urlpatterns=[
     path('Edit_Driver/<driver_id>', Edit_Driver, name='Edit_Driver'),
     path('Delete_Driver/<driver_id>', Delete_Driver, name='Delete_Driver'),
 
+    path('Add_Car/<driver_id>', Add_Car, name='Add_Car'),
+    path('Edit_Car/<driver_id>', Edit_Car, name='Edit_Car'),
+    path('Delete_Car/<car_id>', Delete_Car, name='Delete_Car'),
+
 ]

@@ -108,11 +108,27 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-2" aria-controls="submenu-2"><i class="fa fa-fw fa-rocket"></i>Rider</a>
                                 <div id="submenu-2" class="collapse submenu" style="">
+                                    <ul class="nav flex-column">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{% url 'Admin:Add_Rider' %}">Add Rider</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{% url 'Admin:All_Rider' %}">All Rider</a>
+                                        </li>
+                                    </ul>
                                 </div>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-3" aria-controls="submenu-3"><i class="fas fa-fw fa-chart-pie"></i>Driver</a>
                                 <div id="submenu-3" class="collapse submenu" style="">
+                                    <ul class="nav flex-column">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{% url 'Admin:Add_Driver' %}">Add Driver</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{% url 'Admin:All_Driver' %}">All Driver</a>
+                                        </li>
+                                    </ul>
                                 </div>
                             </li>
                         </ul>
@@ -176,6 +192,15 @@
                     <div class="col-xl-8 col-lg-6 col-md-6 col-sm-12 col-12">
                             <label for="NID">NID</label>
                             <input name="NID" type="text" class="form-control-rounded form-control" id="NID" required>
+
+                    </div>
+
+                    </div>
+
+                    <div class="row">
+                    <div class="col-xl-8 col-lg-6 col-md-6 col-sm-12 col-12">
+                            <label for="FirebaseID">FirebaseID</label>
+                            <input name="FirebaseID" type="text" class="form-control-rounded form-control" id="FirebaseID" required>
 
                     </div>
 
