@@ -56,7 +56,7 @@ class OTPSend(APIView):
                 device_otp = DeviceVerification.objects.get(serial=serial)
                 if device_otp.token == token:
                     payload = {'api_key': API_KEY,
-                               'msg': 'Your DOLNA Ride OPT is '+str(otp)+' DO NOT SHARE THIS OTP. Powered by AlphaCue Technologies.',
+                               'msg': 'Your DOLNA Ride OTP is '+str(otp)+' DO NOT SHARE THIS OTP. Powered by AlphaCue Technologies.',
                                'to': '88'+phone
                                }
 
