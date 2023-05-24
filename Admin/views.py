@@ -304,7 +304,7 @@ def Edit_Driver(request, driver_id):
             except:
                 pass
 
-            driver_image_compress_save(request.FILES['picture'], img_new_name)
+            driver_image_compress_save(request.FILES['picture'], img_new_name,driver_id)
             print(img_new_name)
 
 
